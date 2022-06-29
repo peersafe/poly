@@ -1,0 +1,39 @@
+{
+  "SeedList": [
+    "cross.node1.example.com:20338",
+    "cross.node2.example.com:20338",
+    "cross.node3.example.com:20338",
+    "cross.node4.example.com:20338"
+  ],
+  "ConsensusType": "vbft",
+  "VBFT": {
+    "block_msg_delay": 10000,
+    "hash_msg_delay": 10000,
+    "peer_handshake_timeout": 10,
+    "max_block_change_view": 60000,
+    "vrf_value": "1c9810aa9822e511d5804a9c4db9dd08497c31087b0daafa34d768a3253441fa20515e2f30f81741102af0ca3cefc4818fef16adb825fbaa8cad78647f3afb590e",
+    "vrf_proof": "c57741f934042cb8d8b087b44b161db56fc3ffd4ffb675d36cd09f83935be853d8729f3f5298d12d6fd28d45dde515a4b9d7f67682d182ba5118abf451ff1988",
+    "peers": [
+      {
+        "index": 1,
+        "peerPubkey": "120502370e2c1e11453653f71ccc2c5fb6162f05b9567f1e6716de20cdd19ca8e6419a",
+        "address": "AKTTaVD24wxKVkAYJXdCSSvuM7eZnkTiHc"
+      },
+      {
+        "index": 2,
+        "peerPubkey": "120502ab37cef41d4418ecdfbcbce90984bf45efeabc688abb9164af2d010a008cd7f4",
+        "address": "ANhP4TGjgp246fHcJ5mCWpTkWZSYugmiQo"
+      },
+      {
+        "index": 3,
+        "peerPubkey": "1205033816bd25c50b53a80b5a72917e84aa61567aade12899ec02360e556de02e1529",
+        "address": "AbZ2qLCU9nRb3wyZ9HiK3NMRUWbxMGf9gh"
+      },
+      {
+        "index": 4,
+        "peerPubkey": "120503c85d6fc6f92960c7be76536156d38aab6709f3a916c9f2c0b48f372917212742",
+        "address": "AamXFvjLsDQUSRzgv1x5KaChsA68DSQiW7"
+      }
+    ]
+  }
+}

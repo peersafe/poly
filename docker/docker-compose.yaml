@@ -1,0 +1,66 @@
+version: '2.1'
+
+networks:
+  test:
+    name: fabric_test
+
+services:
+  cross.node1.example.com:
+    image: cross-network:latest
+    container_name: cross.node1.example.com
+    volumes:
+      - /Volumes/data/project/golang/blockchain/polynetwork/poly/build/node1:/var/cross-network/production
+    working_dir: /var/cross-network/production
+    command: poly --config ./config/config.json --data-dir ./chain --enable-consensus --loglevel 1 --networkid 7 --rest --wallet ./wallet/wallet.dat --password 123
+    ports:
+        - 21338:20338
+        - 21339:20339
+        - 21336:20336
+        - 21334:20334
+    networks:
+      - test
+
+  cross.node2.example.com:
+    image: cross-network:latest
+    container_name: cross.node2.example.com
+    volumes:
+      - /Volumes/data/project/golang/blockchain/polynetwork/poly/build/node2:/var/cross-network/production
+    working_dir: /var/cross-network/production
+    command: poly --config ./config/config.json --data-dir ./chain --enable-consensus --loglevel 1 --networkid 7 --rest --wallet ./wallet/wallet.dat --password 123
+    ports:
+      - 22338:20338
+      - 22339:20339
+      - 22336:20336
+      - 22334:20334
+    networks:
+      - test
+
+  cross.node3.example.com:
+    image: cross-network:latest
+    container_name: cross.node3.example.com
+    volumes:
+      - /Volumes/data/project/golang/blockchain/polynetwork/poly/build/node3:/var/cross-network/production
+    working_dir: /var/cross-network/production
+    command: poly --config ./config/config.json --data-dir ./chain --enable-consensus --loglevel 1 --networkid 7 --rest --wallet ./wallet/wallet.dat --password 123
+    ports:
+      - 23338:20338
+      - 23339:20339
+      - 23336:20336
+      - 23334:20334
+    networks:
+      - test
+
+  cross.node4.example.com:
+    image: cross-network:latest
+    container_name: cross.node4.example.com
+    volumes:
+      - /Volumes/data/project/golang/blockchain/polynetwork/poly/build/node4:/var/cross-network/production
+    working_dir: /var/cross-network/production
+    command: poly --config ./config/config.json --data-dir ./chain --enable-consensus --loglevel 1 --networkid 7 --rest --wallet ./wallet/wallet.dat --password 123
+    ports:
+      - 24338:20338
+      - 24339:20339
+      - 24336:20336
+      - 24334:20334
+    networks:
+      - test

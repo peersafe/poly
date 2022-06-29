@@ -1,15 +1,15 @@
 # 1. Stage one: build ontology
-FROM golang:1.15 AS build
-WORKDIR /app
-RUN git clone https://github.com/polynetwork/poly.git  && \
-    cd poly && \
-    git checkout enterprise && \
-    make
+FROM golang:1.18.3 AS build
 
-# 2. Stage two: copy compiled binary from prev builded container(referenced by name build)
-FROM ubuntu:18.04
+COPY . /src
+
+WORKDIR /src
+
+RUN GOPROXY=https://goproxy.cn make
+
+FROM ubuntu:latest
 WORKDIR /app
-COPY --from=build /app/poly/poly poly
+COPY --from=build /src/build/bin/poly /usr/local/bin/poly
 
 
 EXPOSE 20334 20335 20336 20337 20338 20339
