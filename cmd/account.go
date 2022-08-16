@@ -162,6 +162,14 @@ func checkFileName(ctx *cli.Context) string {
 		return config.DEFAULT_WALLET_FILE_NAME
 	}
 }
+
+func checkPassword(ctx *cli.Context) string {
+	if ctx.IsSet(utils.GetFlagName(utils.AccountPassFlag)) {
+		return ctx.String(utils.GetFlagName(utils.AccountPassFlag))
+	}
+	return ""
+}
+
 func checkNumber(ctx *cli.Context) int {
 	numFlag := utils.GetFlagName(utils.AccountQuantityFlag)
 	if ctx.IsSet(numFlag) {

@@ -56,6 +56,7 @@ You can use ./Ontology account --help command to view help information of wallet
 					utils.AccountLabelFlag,
 					utils.IdentityFlag,
 					utils.WalletFileFlag,
+					utils.AccountPassFlag,
 				},
 				Description: ` Add a new account to wallet.
    Ontology support three type of key: ecdsa, sm2 and ed25519, and support 224、256、384、521 bits length of key in ecdsa, but only support 256 bits length of key in sm2 and ed25519.
@@ -169,7 +170,16 @@ func accountCreate(ctx *cli.Context) error {
 	optionFile := checkFileName(ctx)
 	optionNumber := checkNumber(ctx)
 	optionLabel := checkLabel(ctx)
-	pass, _ := password.GetConfirmedPassword()
+	var pass []byte
+	passStr := checkPassword(ctx)
+	if passStr != "" {
+		pass = []byte(passStr)
+	} else {
+		pass, _ = password.GetConfirmedPassword()
+	}
+
+	fmt.Println("pass:", pass)
+
 	keyType := keyTypeMap[optionType].code
 	curve := curveMap[optionCurve].code
 	scheme := schemeMap[optionScheme].code
